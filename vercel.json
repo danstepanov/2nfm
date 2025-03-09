@@ -5,7 +5,7 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "buildCommand": "export NODE_OPTIONS=--openssl-legacy-provider && yarn build",
+        "buildCommand": "yarn build",
         "outputDirectory": "dist"
       }
     }
@@ -15,5 +15,10 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--openssl-legacy-provider"
+    }
+  }
 } 
