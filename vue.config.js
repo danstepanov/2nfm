@@ -1,5 +1,6 @@
 module.exports = {
   lintOnSave: false,
+  publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
   css: { loaderOptions: { sass: { additionalData: '@import "@/assets/sass/global-setup.sass"' } } },
   chainWebpack: (config) => {
     const svgRule = config.module.rule('svg');

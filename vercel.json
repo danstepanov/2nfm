@@ -12,7 +12,30 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/js/(.*)",
+      "headers": { "cache-control": "max-age=31536000, immutable" },
+      "dest": "/js/$1"
+    },
+    {
+      "src": "/css/(.*)",
+      "headers": { "cache-control": "max-age=31536000, immutable" },
+      "dest": "/css/$1"
+    },
+    {
+      "src": "/img/(.*)",
+      "headers": { "cache-control": "max-age=31536000, immutable" },
+      "dest": "/img/$1"
+    },
+    {
+      "src": "/.*",
+      "headers": {
+        "cache-control": "s-maxage=0",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Frame-Options": "DENY",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Security-Policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: *.2n.fm 2n.fm *.vercel.app vercel.app; connect-src 'self' ws: wss: *.2n.fm 2n.fm *.vercel.app vercel.app"
+      },
       "dest": "/index.html"
     }
   ],
