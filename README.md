@@ -1,5 +1,7 @@
 # 2N.fm is in progress
 
+[![Deployed with Vercel](https://vercel.com/button)](https://2nfm.vercel.app)
+
 To start a stream visit: https://2n.fm/streamer
 
 Visit https://2N.fm/{{room-name-here}} to view someone else's tab.
