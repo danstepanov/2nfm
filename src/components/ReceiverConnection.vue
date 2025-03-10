@@ -61,7 +61,12 @@ export default {
       // http://www.rtcmulticonnection.org/docs/constructor/
       const connection = new RTCMultiConnection(this.roomName);
       connection.autoCreateMediaElement = false;
-      connection.socketURL = 'https://api.2n.fm:9001/';
+      connection.socketURL = 'http://localhost:9001/';
+      connection.enabledTransports = [ 'websocket' ];
+      connection.socketOptions = {
+        withCredentials: true,
+        transports: [ 'websocket' ],
+      };
       connection.autoCloseEntireSession = true;
 
       // this must match the extension page

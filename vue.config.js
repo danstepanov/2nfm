@@ -1,4 +1,11 @@
 module.exports = {
+  devServer: {
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+      'Access-Control-Allow-Headers': 'X-Requested-With,content-type, Authorization',
+    },
+  },
   lintOnSave: false,
   publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
   css: { loaderOptions: { sass: { additionalData: '@import "@/assets/sass/global-setup.sass"' } } },

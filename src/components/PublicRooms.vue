@@ -139,8 +139,14 @@ export default {
 
     // http://www.rtcmulticonnection.org/docs/constructor/
     this.connection = new RTCMultiConnection(this.roomName);
-    this.connection.socketURL = 'https://api.2n.fm:9001/';
-    this.connection.autoCloseEntireSession = false;
+    this.connection.autoCreateMediaElement = false;
+    this.connection.socketURL = 'http://localhost:9001/';
+    this.connection.enabledTransports = [ 'websocket' ];
+    this.connection.socketOptions = {
+      withCredentials: true,
+      transports: [ 'websocket' ],
+    };
+    this.connection.autoCloseEntireSession = true;
 
     // this must match the extension page
     this.connection.socketMessageEvent = 'desktopCapture';

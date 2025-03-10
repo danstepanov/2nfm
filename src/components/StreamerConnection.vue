@@ -62,7 +62,12 @@ export default {
       this.connection = new RTCMultiConnection();
       this.connection.autoCreateMediaElement = false;
 
-      this.connection.socketURL = 'https://api.2n.fm:9001/';
+      this.connection.socketURL = 'http://localhost:9001/';
+      this.connection.enabledTransports = [ 'websocket' ];
+      this.connection.socketOptions = {
+        withCredentials: true,
+        transports: [ 'websocket' ],
+      };
       this.connection.autoCloseEntireSession = true;
       // this must match the viewer page
       if (this.privacy === 'public') {
